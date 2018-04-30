@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
-<form method="post" action="confirm.jsp">
+<form method="post" action="/productlocation/confirm" modelAttribute="catalog">
 		<table class="table table-striped">
 			<caption>${location} Products Listing</caption>
 			
@@ -28,12 +28,10 @@
 							href="/products/${catalogue.locId}">View Products</a></td> --%>
 					
 					</tr>
-					<tr>
+				</c:forEach>
+				<tr>
 					<td><input type="submit" value="submit"></td>
 					</tr>
-		
-				</c:forEach>
-				
 			</tbody>
 			
 			<!-- <a class="button" href="/submit">Submit</a> -->

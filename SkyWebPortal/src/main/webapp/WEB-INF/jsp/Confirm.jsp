@@ -2,20 +2,19 @@
 <%@ include file="common/navigation.jspf"%>
 <div class="container">
 		
-				<%-- <% String[] values=request.getParameterValues("catalogues");
-					if (values!=null)%>
-	     <ul><%for(String val: values){%>
-	     <li><%=val%></li>
-	    </ul><%}%> --%>
-			
-			 
+				<% String[] selProds=(String[])request.getAttribute("selectedProd");
+				for(String selProd: selProds) {
+		               out.println(selProd);
+		            }
+		            %>
+			<%--  
 			 <c:forEach items="${paramValues.catalogues}" var="catvalue">
 				 <c:out value="${catvalue.prodName}" />
 				
-				<%-- <td>${value.productId}</td>
+				<td>${value.productId}</td>
 						<td>${value.category}</td>
-						<td>${value.prodName}</td> --%>
-			</c:forEach>
+						<td>${value.prodName}</td>
+			</c:forEach> --%>
 		
 </div>
 

@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,5 +47,20 @@ public class CatalogueController {
 
 	}
 
+	@RequestMapping(value = "/confirm", method = RequestMethod.GET)
+	/*public String confirm(@ModelAttribute("SpringWeb")Catalogue catalogue, 
+		      ModelMap model) {
+		//List<Location> locations= customerLocationService.getLocationId() ;
+		 model.addAttribute("selectedProd",catalogue.getProdName());
+		 return "Confirm";
+
+	}*/
+	public String confirm(@ModelAttribute("catalog") Catalogue catalog,ModelMap model) {
+		//List<Location> locations= customerLocationService.getLocationId() ;
+		//ModelAndView model = new ModelAndView("Confirm");
+		 model.addAttribute("selectedProd",catalog.getProdName());
+		 return "Confirm";
+
+	}
 	
 }

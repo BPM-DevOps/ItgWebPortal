@@ -11,7 +11,7 @@ This project can be imported directly as a Maven project.All the dependency need
 
 Catalogue and Location are the model classes.
 
-##Service:
+## Service:
 
 The application has two services. CustomerLocationService to render location based on customer id and CatalogueService to fetch the products available based on the location id of customer.
 

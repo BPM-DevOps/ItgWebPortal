@@ -23,8 +23,8 @@ Given, When and Then are used for the tests definition.
 ## How to run:
 
 Check out/clone the project.
-mvn spring-boot:run command can be used to run from the command line.
-Also it can be run using the command java -jar target/SkyWebPortal-0.0.1-SNAPSHOT.jar
+`mvn spring-boot:run ` command can be used to run from the command line.
+Also it can be run using the command `java -jar target/SkyWebPortal-0.0.1-SNAPSHOT.jar`
 
 ## SpringBoot and H2 - why:
 

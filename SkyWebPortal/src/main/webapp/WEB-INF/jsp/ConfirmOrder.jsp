@@ -1,27 +1,14 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container">
-	<h2>Congratulations! your order has been submitted!</h2>
-	<table class="table table-striped">
-		<caption>Products Selected</caption>
-		<thead>
-			<tr>
-				<th>Product ID</th>
-				<th>Category</th>
-				<th>Product Name</th>
-				<th>Location</th>
-			</tr>
-		</thead>
-		<tbody>
+	<p><h3><i class="fa fa-check" style="font-size:24px;color:green"></i>Congratulations! your order has been submitted!</h3>
+	<br><h4><i class="fa fa-shopping-cart"></i>Order Items</h4>
+		<hr>
 			<c:forEach items="${catalogues}" var="catalogue">
-				<tr>
-					<td>${catalogue.productId}</td>
-					<td>${catalogue.category}</td>
-					<td>${catalogue.prodName}</td>
-					<td>${catalogue.locId}</td>
-				</tr>
+				<ul><li>${catalogue.prodName}</li></ul>
 			</c:forEach>
-		</tbody>
-	</table>
 </div>
 <%@ include file="common/footer.jspf"%>

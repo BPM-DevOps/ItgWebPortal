@@ -20,6 +20,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sky.webportal.web.model.Catalogue;
 import com.sky.webportal.web.service.CatalogueService;
 
+/**
+ * This class returns the product catalogue
+ * @author vidhya
+ *
+ */
 @Controller
 @RequestMapping("/products")
 public class CatalogueMvcController {

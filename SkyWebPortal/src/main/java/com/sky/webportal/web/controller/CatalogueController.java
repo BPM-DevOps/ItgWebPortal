@@ -12,7 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sky.webportal.web.model.Location;
 import com.sky.webportal.web.service.CustomerLocationService;
-
+/**
+ * This class returns the customer location
+ * @author vidhya
+ * @version 1.0
+ */
 @Controller
 public class CatalogueController {
 

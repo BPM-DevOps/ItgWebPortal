@@ -13,7 +13,7 @@ Catalogue and Location are the model classes.
 
 ## Database:
  
-This project is implemented with H2 database. The browser based console application can be launched through the url http://localhost:8098/h2
+This project is implemented with H2 database. It can be accessed through a browser based console.
  
 ## Tests:
 

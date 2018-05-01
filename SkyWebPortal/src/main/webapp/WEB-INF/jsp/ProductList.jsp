@@ -1,10 +1,16 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <div class="container">
-<form method="post" action="/productlocation/confirm" modelAttribute="catalog">
+	<form:form method="POST" action="/products/user/choice" >
+	<div id="checkoptions">
 		<table class="table table-striped">
 			<caption>${location} Products Listing</caption>
-			
 			<thead>
 				<tr>
 					<th></th>
@@ -12,32 +18,50 @@
 					<th>Category</th>
 					<th>Product Name</th>
 					<th>Location</th>
-					<!-- <th>Action</th> -->
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${catalogues}" var="catalogue">
-				
 					<tr>
-						<td><input type="checkbox" name="catalogues" id="__${catalogue.productId}" ></td>
+						<td><input type="checkbox" name="userOptions" class="ckbox"
+							id="userOptions" value="${catalogue.productId}"></td>
 						<td>${catalogue.productId}</td>
 						<td>${catalogue.category}</td>
 						<td>${catalogue.prodName}</td>
 						<td>${catalogue.locId}</td>
-						<%-- <td><a type="button" class="btn btn-success"
-							href="/products/${catalogue.locId}">View Products</a></td> --%>
-					
 					</tr>
 				</c:forEach>
-				<tr>
-					<td><input type="submit" value="submit"></td>
-					</tr>
 			</tbody>
-			
-			<!-- <a class="button" href="/submit">Submit</a> -->
 		</table>
-		</form>
-		
-</div>
+	 <p align="right"><label>Basket: <input type="text" name="total" class="num" size="6" value="0" readonly="readonly" /></label></p>
+	<button type="submit" class="btn btn-success"> <i class="fa fa-shopping-cart"></i> CheckOut </button>
+	</div>
+	</form:form>
+	</div>
+
+
+	<script>
+	function attachCheckboxHandlers() {
+	    var el = document.getElementById('checkoptions');
+	    var elt = el.getElementsByTagName('input');
+	    for (var i=0, len=elt.length; i<len; i++) {
+	        if ( elt[i].type === 'checkbox' ) {
+	            elt[i].onclick = updateTotal;
+	        }
+	    }
+	}
+
+	function updateTotal(e) {
+	    var form = this.form;
+	    var val = parseInt( form.elements['total'].value );
+	    if ( this.checked ) {
+	        val += 1;
+	    } else {
+	        val -= 1;
+	    }
+	    form.elements['total'].value = val;
+	}
+	attachCheckboxHandlers();
+	</script>
 
 <%@ include file="common/footer.jspf"%>

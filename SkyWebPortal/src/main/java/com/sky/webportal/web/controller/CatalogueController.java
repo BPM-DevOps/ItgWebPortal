@@ -1,8 +1,18 @@
 package com.sky.webportal.web.controller;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,28 +28,17 @@ import com.sky.webportal.web.service.CatalogueService;
 import com.sky.webportal.web.service.CustomerLocationService;
 
 @Controller
-@RequestMapping("/productlocation")
+//@RequestMapping("/productlocation")
 public class CatalogueController {
-
-	/*@Autowired
-	CatalogueService catalogueService;
-
-	@RequestMapping(value = "/productlocation", method = RequestMethod.GET)
-	public Object getProduct(@PathVariable("locId") String locId) {
-		List<Catalogue> catalogue = catalogueService.getProduct(locId);
-		// ModelAndView model = new ModelAndView("ProductList");
-		// model.addObject("catalogue", catalogue);
-		// return model;
-		return catalogue;
-*/
+	
+	Logger logger = LoggerFactory.getLogger(CatalogueController.class);
 	
 	@Autowired
 	CustomerLocationService customerLocationService;
 
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "/productlocation", method = RequestMethod.GET)
 	public Object getLocation() {
 		List<Location> locations= customerLocationService.getLocationId() ;
-		System.out.println(locations);
 		 ModelAndView model = new ModelAndView("ProductList");
 		 model.addObject("location", "ALL");
 		 model.addObject("locations", locations);
@@ -47,20 +46,4 @@ public class CatalogueController {
 
 	}
 
-	@RequestMapping(value = "/confirm", method = RequestMethod.GET)
-	/*public String confirm(@ModelAttribute("SpringWeb")Catalogue catalogue, 
-		      ModelMap model) {
-		//List<Location> locations= customerLocationService.getLocationId() ;
-		 model.addAttribute("selectedProd",catalogue.getProdName());
-		 return "Confirm";
-
-	}*/
-	public String confirm(@ModelAttribute("catalog") Catalogue catalog,ModelMap model) {
-		//List<Location> locations= customerLocationService.getLocationId() ;
-		//ModelAndView model = new ModelAndView("Confirm");
-		 model.addAttribute("selectedProd",catalog.getProdName());
-		 return "Confirm";
-
-	}
-	
 }

@@ -22,23 +22,30 @@ import org.springframework.web.context.WebApplicationContext;
 public class SkyWebApplicationTest {
 
 	@Autowired
-    private WebApplicationContext webApplicationContext;
+	private WebApplicationContext webApplicationContext;
 
-    private MockMvc mockMvc;
-    
-    @Before
-    public void setupMockMvc() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-    }
+	private MockMvc mockMvc;
 
-    
+	@Before
+	public void setupMockMvc() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
+				.build();
+	}
+
 	@Test
 	public void contextLoads() {
 	}
-	public void givenRequestHasBeenMade_whenMeetsAllOfGivenConditions_thenCorrect() throws Exception {
-        MediaType contentType = new MediaType(MediaType.ALL.getType(), MediaType.ALL.getSubtype(), Charset.forName("utf8"));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/entity/all")).andExpect(MockMvcResultMatchers.status().isOk()).andExpect(MockMvcResultMatchers.content().contentType(contentType));
-    }
+	public void givenRequestHasBeenMade_whenMeetsAllOfGivenConditions_thenCorrect()
+			throws Exception {
+		MediaType contentType = new MediaType(MediaType.ALL.getType(),
+				MediaType.ALL.getSubtype(), Charset.forName("utf8"));
+
+		mockMvc.perform(MockMvcRequestBuilders.get("/entity/all"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(
+						MockMvcResultMatchers.content()
+								.contentType(contentType));
+	}
 
 }

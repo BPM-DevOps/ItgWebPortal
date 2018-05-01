@@ -13,25 +13,27 @@ import com.sky.webportal.web.dao.CatalogueDao;
 import com.sky.webportal.web.model.Catalogue;
 
 @Service
-public class CatalogueDaoImpl extends HibernateDaoSupport implements CatalogueDao{
+public class CatalogueDaoImpl extends HibernateDaoSupport implements
+		CatalogueDao {
 
 	@Autowired
 	public void setMySessionFactory(SessionFactory sessionFactory) {
 		setSessionFactory(sessionFactory);
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public List<Catalogue> getProduct(String locId) {
-		//return (List<Catalogue>) getHibernateTemplate().find("from catalogue where locId = '" + locId + "'");
-		return (List<Catalogue>) getHibernateTemplate().findByNamedParam("from Catalogue where locId = :locId or category='News'", "locId", locId) ;
+		return (List<Catalogue>) getHibernateTemplate().findByNamedParam(
+				"from Catalogue where locId = :locId or category='News'",
+				"locId", locId);
 	}
 
 	@Override
 	public List<Catalogue> getProducts() {
-		List<Catalogue> cats = (List<Catalogue>) getHibernateTemplate().loadAll(Catalogue.class) ;
+		List<Catalogue> cats = (List<Catalogue>) getHibernateTemplate()
+				.loadAll(Catalogue.class);
 		Collections.sort(cats, new CatalogueComparator());
-		return cats ;
+		return cats;
 	}
-
 
 }

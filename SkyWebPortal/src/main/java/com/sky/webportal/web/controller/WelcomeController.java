@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.sky.webportal.web.model.Location;
 import com.sky.webportal.web.service.CustomerLocationService;
@@ -19,27 +18,23 @@ public class WelcomeController {
 
 	@Autowired
 	CustomerLocationService customerLocationService;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showWelcomePage(ModelMap model) {
-			List<Location> locations= customerLocationService.getLocationId() ;
-			System.out.println(locations);
-			 model.put("locations", locations);
-			 model.put("name", getLoggedinUserName());
-			 return "welcome";
+		List<Location> locations = customerLocationService.getLocationId();
+		System.out.println(locations);
+		model.put("locations", locations);
+		model.put("name", getLoggedinUserName());
+		return "welcome";
 
-		}
-		
-		
+	}
+
 	private String getLoggedinUserName() {
 		Object principal = SecurityContextHolder.getContext()
 				.getAuthentication().getPrincipal();
-		
 		if (principal instanceof UserDetails) {
 			return ((UserDetails) principal).getUsername();
 		}
-		
 		return principal.toString();
 	}
-
 }

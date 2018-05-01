@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@EnableAutoConfiguration (exclude=HibernateJpaAutoConfiguration.class)
+@EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
 @ComponentScan("com.sky.webportal.web")
 public class SkyWebApplication {
 

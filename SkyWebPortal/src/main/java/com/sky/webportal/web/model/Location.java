@@ -2,14 +2,11 @@ package com.sky.webportal.web.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="customer")
+@Table(name = "customer")
 public class Location {
 
 	@Id
@@ -17,7 +14,7 @@ public class Location {
 	private int customerId;
 	private String customerName;
 	private String locid;
-	
+
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -41,6 +38,7 @@ public class Location {
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -51,7 +49,6 @@ public class Location {
 		builder.append(" , locId=");
 		builder.append(locid);
 		return builder.toString();
-}
-
+	}
 
 }

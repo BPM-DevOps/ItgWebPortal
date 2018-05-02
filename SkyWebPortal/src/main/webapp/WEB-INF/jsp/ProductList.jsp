@@ -3,7 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="validate.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -47,7 +46,7 @@
 </div>
 
 
-<!-- <script>
+<script>
 	function check() {
         if (!validateCheckBoxes()){
             alert("Please select atleast one product");
@@ -88,6 +87,6 @@
 		form.elements['total'].value = val;
 	}
 	attachCheckboxHandlers();
-</script> -->
+</script>
 
 <%@ include file="common/footer.jspf"%>

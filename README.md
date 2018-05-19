@@ -28,7 +28,7 @@ Given, When and Then are used for the tests definition.
 
 Check out/clone the project.
 `mvn spring-boot:run ` command can be used to run from the command line.
-Also it can be run using the command `java -jar target/ItgWebPortal-0.0.1-SNAPSHOT.jar`. The application can be launched through localhost:8098 and username/password is skyadmin/skyadmin.
+Also it can be run using the command `java -jar target/ItgWebPortal-0.0.1-SNAPSHOT.jar`. The application can be launched through localhost:8098 and username/password is webadmin/webadmin.
 
 ## SpringBoot and H2 - why:
 
